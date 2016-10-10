@@ -4,8 +4,8 @@ GO_SOURCES=$(shell find . -name \*.go)
 SOURCES=$(GO_SOURCES)
 PLATFORM_BINARIES=dist/ec2cluster.Linux.x86_64
 
-IMAGE_NAME=crewjam/ec2cluster
-GITHUB_USER=crewjam
+IMAGE_NAME=camil/ec2cluster
+GITHUB_USER=camilb
 GITHUB_REPOSITORY=ec2cluster
 
 all: $(PLATFORM_BINARIES)
