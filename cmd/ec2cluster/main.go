@@ -63,8 +63,8 @@ func main() {
 	availabilityZone := *instance.Placement.AvailabilityZone
 	fmt.Printf("AVAILABILITY_ZONE=\"%s\"\n", availabilityZone)
 	fmt.Printf("REGION=\"%s\"\n", availabilityZone[:len(availabilityZone)-1])
-	if instance.PrivateIpAddress != nil {
-		fmt.Printf("ADVERTISE_ADDRESS=\"%s\"\n", *instance.PrivateIpAddress)
+	if instance.PrivateDnsName != nil {
+		fmt.Printf("ADVERTISE_ADDRESS=\"%s\"\n", *instance.PrivateDnsName)
 	}
 	for _, tag := range instance.Tags {
 		fmt.Printf("TAG_%s=\"%s\"\n", strings.ToUpper(
@@ -89,8 +89,8 @@ func main() {
 
 	clusterVar := []string{}
 	for _, instance := range clusterInstances {
-		if instance.PrivateIpAddress != nil {
-			clusterVar = append(clusterVar, *instance.PrivateIpAddress)
+		if instance.PrivateDnsName != nil {
+			clusterVar = append(clusterVar, *instance.PrivateDnsName)
 		}
 	}
 	fmt.Printf("CLUSTER=\"%s\"\n", strings.Join(clusterVar, " "))

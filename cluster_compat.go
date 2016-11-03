@@ -30,8 +30,8 @@ func DiscoverClusterMembersByTag(awsSession *session.Session, tagName string) ([
 
 	rv := []string{}
 	for _, member := range clusterMembers {
-		if member.PrivateIpAddress != nil {
-			rv = append(rv, *member.PrivateIpAddress)
+		if member.PrivateDnsName != nil {
+			rv = append(rv, *member.PrivateDnsName)
 		}
 	}
 	return rv, nil
